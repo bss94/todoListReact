@@ -4,49 +4,58 @@
     padding: 2rem;
     text-align: center;
 }
+
 /********************/
-li{
+li {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.task-check:checked+.item-text-cont{
-    color: #535bf2;
+
+.task-check:checked + .item-text-cont {
+    color: rgba(105, 105, 105, 0.8);
     text-decoration: line-through;
 }
-.delete-btn{
+
+.delete-btn {
     background-color: rgba(222, 74, 74, 0.55);
 }
-.edit-btn{
+
+.edit-btn {
     background-color: rgba(6, 248, 10, 0.55);
 }
-.task-btn{
+
+.task-btn {
     background-color: rgba(52, 133, 239, 0.55);
 }
-.task-input{
+
+.task-input {
     height: 40px;
-    width: 400px;
+    width: 450px;
     border-radius: 10px;
     border: 1px solid rgba(130, 130, 134, 0.52);
 }
-.task-add, .task-item{
+
+.task-add, .task-item {
     margin: 10px 0;
-    width: 600px;
+    min-width: 600px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 5px;
 }
 
-.btn-cont{
+.btn-cont {
     width: 173px;
     display: flex;
     justify-content: flex-end;
 }
-button{
+
+button {
     margin-left: 10px;
 }
-.item-text-cont{
+
+.item-text-cont {
     width: 400px;
     text-align: start;
 }
