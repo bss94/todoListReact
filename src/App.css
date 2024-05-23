@@ -10,3 +10,43 @@ li{
     align-items: center;
     justify-content: space-between;
 }
+.task-check:checked+.item-text-cont{
+    color: #535bf2;
+    text-decoration: line-through;
+}
+.delete-btn{
+    background-color: rgba(222, 74, 74, 0.55);
+}
+.edit-btn{
+    background-color: rgba(6, 248, 10, 0.55);
+}
+.task-btn{
+    background-color: rgba(52, 133, 239, 0.55);
+}
+.task-input{
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid rgba(130, 130, 134, 0.52);
+}
+.task-add, .task-item{
+    margin: 10px 0;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.btn-cont{
+    width: 173px;
+    display: flex;
+    justify-content: flex-end;
+}
+button{
+    margin-left: 10px;
+}
+.item-text-cont{
+    width: 400px;
+    text-align: start;
+}

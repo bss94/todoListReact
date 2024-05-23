@@ -6,7 +6,7 @@ interface Props {
     completed: boolean;
     onDeleteClick: React.MouseEventHandler;
     onEditTask: React.MouseEventHandler;
-    onComplete:React.ChangeEventHandler;
+    onComplete: React.ChangeEventHandler;
 }
 
 const Task: React.FC<Props> = ({
@@ -18,12 +18,22 @@ const Task: React.FC<Props> = ({
                                    onComplete
                                }) => {
     return (
-        <li id={id}>
-            <input type={'checkbox'} checked={completed} onChange={onComplete}/>
-            <p>{task}</p>
-            <button className={'delete-btn'} onClick={onDeleteClick}>Delete</button>
-            <button className={'edit-btn'} onClick={onEditTask}>Edit</button>
-        </li>
+        <div className={'task-item'} id={id}>
+            <input type={'checkbox'} className={'task-check'} checked={completed} onChange={onComplete}/>
+            <div className={'item-text-cont'}>
+                <p className={'item-text'}>{task}</p>
+            </div>
+
+            {!completed ?
+                <div className={'btn-cont'}>
+                    <button className={'edit-btn'} onClick={onEditTask}>Edit</button>
+                    <button className={'delete-btn'} onClick={onDeleteClick}>Delete</button>
+                </div>
+                : <div className={'btn-cont'}>
+                    <button className={'delete-btn'} onClick={onDeleteClick}>Delete</button>
+                </div>
+            }
+        </div>
     );
 };
 
