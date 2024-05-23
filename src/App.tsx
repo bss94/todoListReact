@@ -17,20 +17,21 @@ const App = () => {
 
 
     const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCurrentTask(prevCurrentTask => {
-            let newTask = prevCurrentTask;
-            newTask = event.target.value;
-            return newTask;
-        })
+        const newTask = event.target.value;
+
+        setCurrentTask(newTask);
     };
     const onHandleClick = () => {
         if(currentTask!==''){
-            const newTask={
-                task:currentTask,
-                id:String(taskList.length+1)+'task'
-            }
-            const newTaskList = [...taskList,newTask]
-            setTaskList(newTaskList);
+            setTaskList((prevTaskList) => {
+                const taskCopy = [...prevTaskList];
+                const newTask={
+                    task:currentTask,
+                    id:String(taskCopy.length+1)+'task'
+                }
+                taskCopy.push(newTask)
+                return taskCopy;
+            });
             setCurrentTask('')
         }
     };
