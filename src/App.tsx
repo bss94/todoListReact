@@ -23,13 +23,14 @@ const App = () => {
         const newTask = event.target.value;
         setCurrentTask(newTask);
     };
-    const onHandleClick = () => {
+    const onHandleClick = (event: React.FormEvent) => {
+        event.preventDefault();
         if (currentTask !== '') {
             setTaskList((prevTaskList) => {
                 const taskCopy = [...prevTaskList];
                 const newTask = {
                     task: currentTask,
-                    id: String(taskCopy.length + 1) + 'task',
+                    id: String(Math.floor(Math.random() * 100)) + 'task' + String(Math.floor(Math.random() * 100)),
                     completed: false
                 };
                 taskCopy.push(newTask);
@@ -93,7 +94,7 @@ const App = () => {
                          onEdit={onEdit}
                          onCancel={onCancelHandler}
             />
-            {editTask ? <h4>Edit your task(task id: {editTaskId})</h4> :
+            {taskList.length > 0 ? (editTask ? <h4>Edit your task(task id: {editTaskId})</h4> :
                 taskList.map((el) => {
                     return <Task task={el.task}
                                  id={el.id}
@@ -103,7 +104,8 @@ const App = () => {
                                  onEditTask={() => onEditTask(el.id)}
                                  key={el.id}
                     />;
-                })}
+                })) : <h4>Task list empty, enter new task</h4>}
+
         </>
     );
 };
